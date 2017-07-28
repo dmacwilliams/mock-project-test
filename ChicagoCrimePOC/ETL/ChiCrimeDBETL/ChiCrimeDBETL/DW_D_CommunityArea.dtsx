@@ -7,12 +7,12 @@
   DTS:CreatorName="WMP\dmacwilliams"
   DTS:DTSID="{B6D8DA18-B36F-4A44-B122-1403975F01C6}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LastModifiedProductVersion="13.0.1601.5"
   DTS:LocaleID="1033"
   DTS:ObjectName="DW_D_CommunityArea"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{B8F25220-E916-4B21-A542-65B3D29E6EC3}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{AE79D100-E27F-4798-A947-648FB67331FF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -338,7 +338,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT CommunityAreaCode
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT CommunityAreaCode
 FROM	DW.D_CommunityArea
 WHERE	isActiveRecord = 'Y'
 ORDER BY CommunityAreaCode ASC</property>
@@ -455,7 +455,7 @@ ORDER BY CommunityAreaCode ASC</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT CommunityAreaCode
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT CommunityAreaCode
 FROM	STAGE.Crimes
 WHERE	ETL_BatchID = (SELECT MAX(ETL_BatchID) FROM STAGE.Crimes)
 AND COALESCE(CommunityAreaCode,'') &lt;&gt; ''
@@ -573,7 +573,7 @@ ORDER BY CommunityAreaCode ASC</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -778,7 +778,7 @@ ORDER BY CommunityAreaCode ASC</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{607170FF-CB34-48E6-8D81-080160D60AAD}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE TEMP.D_CommunityArea" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE TEMP.D_CommunityArea&#xA;//yes" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -813,15 +813,15 @@ ORDER BY CommunityAreaCode ASC</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="218,42"
+          Size="217.6,41.6"
           Id="Package\DFT Load D_CommunityArea"
           TopLeft="79.6649214659686,140.356020942408" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\SQL Task Merge Temp into DW"
           TopLeft="109.947643979058,232.460732984293" />
         <NodeLayout
-          Size="242,60"
+          Size="241.6,60"
           Id="Package\SQL Task Truncate Temp Table"
           TopLeft="67.3507853403142,40.5863874345549" />
         <EdgeLayout
