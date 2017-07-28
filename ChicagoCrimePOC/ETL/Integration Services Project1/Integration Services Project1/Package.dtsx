@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/1/2016 1:26:55 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="CHI-GWIGEN2"
+  DTS:CreatorName="WMP\gwigen"
+  DTS:DTSID="{DA6E89A3-20C9-46EE-A790-CD45471449F4}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.5583.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionGUID="{6D5FB5CC-4573-42BC-AC37-A2FE57D528D4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables />
+</DTS:Executable>

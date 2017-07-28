@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ChiCrimeDBETL", "ChiCrimeDBETL\ChiCrimeDBETL.dtproj", "{CCE93BA4-1F58-4F1D-9B33-349585352C68}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://westmonroepartners.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ChiCrimeDBETL\\ChiCrimeDBETL.dtproj
+		SccProjectName1 = ChiCrimeDBETL
+		SccLocalPath1 = ChiCrimeDBETL
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCE93BA4-1F58-4F1D-9B33-349585352C68}.Development|Default.ActiveCfg = Development
+		{CCE93BA4-1F58-4F1D-9B33-349585352C68}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1350 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/7/2016 8:26:14 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CHI-GWIGEN2"
+  DTS:CreatorName="WMP\gwigen"
+  DTS:DTSID="{C48BC7F3-4C2A-4F61-B9F8-E21DE4B3DE1D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Stage_Crime"
+  DTS:PackageType="5"
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{7C90D2A7-0E3B-4109-B2AD-4CB0ED49D84B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CBC3CC07-C080-42B6-B663-885C30278776}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="v_BatchID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Convert Crime Events"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3FEE8C8F-A5B6-42C9-AB12-6749B21E473B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Convert Crime Events"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Convert Crime Events\DC ETL Meta Data"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC ETL Meta Data"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Convert Crime Events\DC ETL Meta Data.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Convert Crime Events\DC ETL Meta Data.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT Convert Crime Events\DC ETL Meta Data.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\DC ETL Meta Data.Outputs[Derived Column Output].Columns[CreateDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Convert Crime Events\DC ETL Meta Data.Outputs[Derived Column Output].Columns[CreateDate]"
+                      name="CreateDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\DC ETL Meta Data.Outputs[Derived Column Output].Columns[ETL_BatchID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Convert Crime Events\DC ETL Meta Data.Outputs[Derived Column Output].Columns[ETL_BatchID]"
+                      name="ETL_BatchID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::v_BatchID]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::v_BatchID]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Convert Crime Events\DC ETL Meta Data.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT Convert Crime Events\DC ETL Meta Data.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\DC ETL Meta Data.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Convert Crime Events\DC ETL Meta Data.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\DC ETL Meta Data.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Convert Crime Events\DC ETL Meta Data.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Target STAGE Crimes"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[STAGE].[Crimes]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Connections[OleDbConnection]"
+                  connectionManagerID="{607170FF-CB34-48E6-8D81-080160D60AAD}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLE_TRGT_ChicagoCrimeDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[CrimeDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CrimeDate"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[CrimeDate]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CrimeDate]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[PrimaryCrimeType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="PrimaryCrimeType"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[PrimaryCrimeType]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[PrimaryCrimeType]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[CrimeDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CrimeDescription"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[CrimeDescription]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CrimeDescription]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[LocationDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="LocationDescription"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[LocationDescription]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[LocationDescription]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[isArrested]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="isArrested"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[IsArrested]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[isArrested]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[isDomestic]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="isDomestic"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[IsDomestic]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[isDomestic]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[PoliceBeatCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="PoliceBeatCode"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[PoliceBeatCode]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[PoliceBeatCode]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[PoliceDistrictCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="PoliceDistrictCode"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[PoliceDistrictCode]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[PoliceDistrictCode]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[WardCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="WardCode"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[WardCode]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[WardCode]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[CommunityAreaCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CommunityAreaCode"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[CommunityAreaCode]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CommunityAreaCode]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[X_Coordinate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="X_Coordinate"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[X_Coordinate]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[X_Coordinate]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[CaseNo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="CaseNo"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[CaseNo]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CaseNo]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[StreetBlockLocation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="StreetBlockLocation"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[StreetBlockLocation]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[StreetBlockLocation]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[IUCRCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="IUCRCode"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[IUCRCode]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[IUCRCode]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[FBICode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="FBICode"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[FBICode]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[FBICode]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[Y_Coordiante]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Y_Coordiante"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[Y_Coordinate]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[Y_Coordiante]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[CrimeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CrimeID"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CrimeID]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[SourceLastUpdateDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="SourceLastUpdateDate"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[CrimeLastUpdated]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[SourceLastUpdateDate]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[CrimeYear]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="CrimeYear"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CrimeYear]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[CreateDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreateDate"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[ETL_CreatedDate]"
+                      lineageId="Package\DFT Convert Crime Events\DC ETL Meta Data.Outputs[Derived Column Output].Columns[CreateDate]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[ETL_BatchID]"
+                      cachedDataType="i4"
+                      cachedName="ETL_BatchID"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[ETL_BatchID]"
+                      lineageId="Package\DFT Convert Crime Events\DC ETL Meta Data.Outputs[Derived Column Output].Columns[ETL_BatchID]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[Longitude]"
+                      cachedDataType="numeric"
+                      cachedName="Longitude"
+                      cachedPrecision="9"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[Longitude]" />
+                    <inputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].Columns[Latitude]"
+                      cachedDataType="numeric"
+                      cachedName="Latitude"
+                      cachedPrecision="9"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[Latitude]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[CaseNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="CaseNo" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[CrimeDate]"
+                      dataType="dbTimeStamp"
+                      name="CrimeDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[StreetBlockLocation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="StreetBlockLocation" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[IUCRCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="IUCRCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[PrimaryCrimeType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="PrimaryCrimeType" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[CrimeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CrimeDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[LocationDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="LocationDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[IsArrested]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="IsArrested" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[IsDomestic]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="IsDomestic" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[PoliceBeatCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="PoliceBeatCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[PoliceDistrictCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="PoliceDistrictCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[WardCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="WardCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[CommunityAreaCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CommunityAreaCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[FBICode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="FBICode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[X_Coordinate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="X_Coordinate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[Y_Coordinate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Y_Coordinate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[CrimeLastUpdated]"
+                      dataType="dbTimeStamp"
+                      name="CrimeLastUpdated" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      dataType="numeric"
+                      name="Latitude"
+                      precision="9"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      dataType="numeric"
+                      name="Longitude"
+                      precision="9"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[ETL_BatchID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="ETL_BatchID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input].ExternalColumns[ETL_CreatedDate]"
+                      dataType="dbTimeStamp2"
+                      name="ETL_CreatedDate"
+                      scale="7" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE_SRC_Land_Crimes"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CAST(ID as Varchar(255)) as CrimeID
+	,CAST(Case_Number as Varchar(20)) as CaseNo
+	,CAST([date] as datetime) as CrimeDate
+	,CAST(block as Varchar(255)) as StreetBlockLocation
+	,CAST(iucr as Varchar(8)) as IUCRCode
+	,CAST(primary_type as Varchar(100)) as PrimaryCrimeType
+	,CAST(description as Varchar(255)) as CrimeDescription
+	,CAST(location_description as Varchar(255)) as LocationDescription
+	,CASE WHEN arrest = 'true' then 'Y'
+		WHEN arrest = 'false' then 'N'
+		ELSE 'U'
+		END as isArrested
+	,CASE WHEN domestic = 'true' then 'Y'
+		WHEN domestic = 'false' then 'N'
+		ELSE 'U'
+		END as isDomestic
+	,CAST(beat as Varchar(10)) as PoliceBeatCode
+	,CAST(district as Varchar(10)) as PoliceDistrictCode
+	,CAST(ward as Varchar(10)) as WardCode
+	,CAST(community_area as Varchar(10)) as CommunityAreaCode
+	,CAST(fbi_code as Varchar(10)) as FBICode
+	,CAST(x_coordinate as Varchar(20)) as X_Coordinate
+	,CAST(y_coordinate as Varchar(20)) as Y_Coordiante
+	,CAST(year as char(4)) as CrimeYear
+	,CAST(updated_on as datetime) as SourceLastUpdateDate
+	,CASE WHEN RTRIM(LTRIM(latitude)) = '' THEN NULL
+		ELSE CAST(latitude as DECIMAL(9,6))
+		END Latitude
+	,CASE WHEN RTRIM(LTRIM(longitude)) = '' THEN NULL
+		ELSE CAST(longitude as DECIMAL(9,6))
+		END Longitude
+FROM LAND.Crimes</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Connections[OleDbConnection]"
+                  connectionManagerID="{C097054E-D545-48E4-9EA9-08978F923AF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLE_SRC_ChicagoCrimeDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CrimeID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[CrimeID]"
+                      length="255"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CrimeID]"
+                      name="CrimeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CrimeDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[CrimeDate]"
+                      length="255"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CrimeDate]"
+                      name="CrimeDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[PrimaryCrimeType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[PrimaryCrimeType]"
+                      length="100"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[PrimaryCrimeType]"
+                      name="PrimaryCrimeType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CrimeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[CrimeDescription]"
+                      length="255"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CrimeDescription]"
+                      name="CrimeDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[LocationDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[LocationDescription]"
+                      length="255"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[LocationDescription]"
+                      name="LocationDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[isArrested]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[isArrested]"
+                      length="1"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[isArrested]"
+                      name="isArrested"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[isDomestic]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[isDomestic]"
+                      length="1"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[isDomestic]"
+                      name="isDomestic"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[PoliceBeatCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[PoliceBeatCode]"
+                      length="10"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[PoliceBeatCode]"
+                      name="PoliceBeatCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[PoliceDistrictCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[PoliceDistrictCode]"
+                      length="10"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[PoliceDistrictCode]"
+                      name="PoliceDistrictCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[WardCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[WardCode]"
+                      length="10"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[WardCode]"
+                      name="WardCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CommunityAreaCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[CommunityAreaCode]"
+                      length="10"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CommunityAreaCode]"
+                      name="CommunityAreaCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[X_Coordinate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[X_Coordinate]"
+                      length="20"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[X_Coordinate]"
+                      name="X_Coordinate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[Y_Coordiante]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[Y_Coordiante]"
+                      length="20"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[Y_Coordiante]"
+                      name="Y_Coordiante"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CrimeYear]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[CrimeYear]"
+                      length="4"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CrimeYear]"
+                      name="CrimeYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[SourceLastUpdateDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[SourceLastUpdateDate]"
+                      length="255"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[SourceLastUpdateDate]"
+                      name="SourceLastUpdateDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CaseNo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[CaseNo]"
+                      length="20"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[CaseNo]"
+                      name="CaseNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[StreetBlockLocation]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[StreetBlockLocation]"
+                      length="255"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[StreetBlockLocation]"
+                      name="StreetBlockLocation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[IUCRCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[IUCRCode]"
+                      length="8"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[IUCRCode]"
+                      name="IUCRCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[FBICode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[FBICode]"
+                      length="10"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[FBICode]"
+                      name="FBICode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[Latitude]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[Latitude]"
+                      name="Latitude"
+                      precision="9"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[Longitude]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].Columns[Longitude]"
+                      name="Longitude"
+                      precision="9"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[CrimeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CrimeID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[CrimeDate]"
+                      dataType="dbTimeStamp"
+                      name="CrimeDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[PrimaryCrimeType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="PrimaryCrimeType" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[CrimeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CrimeDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[LocationDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="LocationDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[isArrested]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="isArrested" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[isDomestic]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="isDomestic" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[PoliceBeatCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="PoliceBeatCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[PoliceDistrictCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="PoliceDistrictCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[WardCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="WardCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[CommunityAreaCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CommunityAreaCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[X_Coordinate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="X_Coordinate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[Y_Coordiante]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Y_Coordiante" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[CrimeYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="CrimeYear" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[SourceLastUpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="SourceLastUpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[CaseNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="CaseNo" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[StreetBlockLocation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="StreetBlockLocation" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[IUCRCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="IUCRCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[FBICode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="FBICode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                      dataType="numeric"
+                      name="Latitude"
+                      precision="9"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                      dataType="numeric"
+                      name="Longitude"
+                      precision="9"
+                      scale="6" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[CrimeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[CrimeID]"
+                      name="CrimeID" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[CaseNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[CaseNo]"
+                      name="CaseNo" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[CrimeDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[CrimeDate]"
+                      name="CrimeDate" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[StreetBlockLocation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[StreetBlockLocation]"
+                      name="StreetBlockLocation" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[IUCRCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[IUCRCode]"
+                      name="IUCRCode" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[PrimaryCrimeType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[PrimaryCrimeType]"
+                      name="PrimaryCrimeType" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[CrimeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[CrimeDescription]"
+                      name="CrimeDescription" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[LocationDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[LocationDescription]"
+                      name="LocationDescription" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[isArrested]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[isArrested]"
+                      name="isArrested" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[isDomestic]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[isDomestic]"
+                      name="isDomestic" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[PoliceBeatCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[PoliceBeatCode]"
+                      name="PoliceBeatCode" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[PoliceDistrictCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[PoliceDistrictCode]"
+                      name="PoliceDistrictCode" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[WardCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[WardCode]"
+                      name="WardCode" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[CommunityAreaCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[CommunityAreaCode]"
+                      name="CommunityAreaCode" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[FBICode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[FBICode]"
+                      name="FBICode" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[X_Coordinate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[X_Coordinate]"
+                      name="X_Coordinate" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[Y_Coordiante]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[Y_Coordiante]"
+                      name="Y_Coordiante" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[CrimeYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[CrimeYear]"
+                      name="CrimeYear" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[SourceLastUpdateDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[SourceLastUpdateDate]"
+                      name="SourceLastUpdateDate" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                      dataType="numeric"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                      name="Latitude"
+                      precision="9"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                      dataType="numeric"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                      name="Longitude"
+                      precision="9"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Convert Crime Events.Paths[Derived Column Output]"
+              endId="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT Convert Crime Events\DC ETL Meta Data.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT Convert Crime Events.Paths[OLE DB Source Output]"
+              endId="Package\DFT Convert Crime Events\DC ETL Meta Data.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Task set ETL_BatchID"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A4BAD42C-AC6E-4E2C-B882-1E3261F1FDC9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Task set ETL_BatchID"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{607170FF-CB34-48E6-8D81-080160D60AAD}"
+          SQLTask:SqlStatementSource="SELECT MAX(ISNULL(ETL_BatchID,0))+1 as NextETL_BatchID&#xA;  FROM [ChicagoCrime].STAGE.[Crimes]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="NextETL_BatchID"
+            SQLTask:DtsVariableName="User::v_BatchID" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{FC3D6D21-D327-47E6-903C-83BA01FEFD61}"
+      DTS:From="Package\SQL Task set ETL_BatchID"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT Convert Crime Events" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="205.570680628273,42.2198952879582"
+          Id="Package\DFT Convert Crime Events"
+          TopLeft="60.502617801047,94.8691099476439" />
+        <NodeLayout
+          Size="165.86387434555,42.2198952879582"
+          Id="Package\SQL Task set ETL_BatchID"
+          TopLeft="81.4240837696335,14.5759162303665" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="163.821989528796,56.7958115183246">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.0732984293193"
+              Start="0,0"
+              End="0,30.5732984293193">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5732984293193" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT Convert Crime Events">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="191.497382198953,42.2198952879582"
+          Id="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes"
+          TopLeft="77.0680628272251,21.6125654450262" />
+        <NodeLayout
+          Size="167.371727748692,42.2198952879582"
+          Id="Package\DFT Convert Crime Events\DC ETL Meta Data"
+          TopLeft="91.0994764397906,139.057591623037" />
+        <NodeLayout
+          Size="221.654450261781,42.2198952879582"
+          Id="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes"
+          TopLeft="61.4450261780105,220.984293193717" />
+        <EdgeLayout
+          Id="Package\DFT Convert Crime Events.Paths[OLE DB Source Output]"
+          TopLeft="173.801047120419,63.8324607329843">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75.2251308900522"
+              Start="0,0"
+              End="0,67.7251308900522">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.7251308900522" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Convert Crime Events.Paths[Derived Column Output]"
+          TopLeft="173.528795811518,181.277486910995">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.7068062827229"
+              Start="0,0"
+              End="0,32.2068062827229">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.2068062827229" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Convert Crime Events\OLE_SRC_Land_Crimes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Convert Crime Events\OLE DB Target STAGE Crimes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
