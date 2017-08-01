@@ -1,0 +1,1092 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/12/2016 4:16:47 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CHI-DMACWILLVM"
+  DTS:CreatorName="WMP\dmacwilliams"
+  DTS:DTSID="{4394A568-8FF3-4AE5-B2E3-AF2D3AD2515C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.1601.5"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DW_D_Ward"
+  DTS:PackageType="5"
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{0D796F12-4630-4407-8D37-E9073037A31E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Load Temp D_Ward"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E4464334-A032-45F7-AFA5-B66FBED95813}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Load Temp D_Ward"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Load Temp D_Ward\DC ETL Meta Data"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC ETL Meta Data"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Inputs[Derived Column Input].Columns[WardCode STAGE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="WardCode STAGE"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT Load Temp D_Ward\Merge Join.Outputs[Merge Join Output].Columns[WardCode STAGE]" />
+                    <inputColumn
+                      refId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Inputs[Derived Column Input].Columns[WardCode DW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="WardCode DW"
+                      lineageId="Package\DFT Load Temp D_Ward\Merge Join.Outputs[Merge Join Output].Columns[WardCode DW]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Output].Columns[EffectiveStartDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Output].Columns[EffectiveStartDate]"
+                      name="EffectiveStartDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Project::EffectiveStartDate_Default]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Project::EffectiveStartDate_Default]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Output].Columns[EffectiveEndDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Output].Columns[EffectiveEndDate]"
+                      name="EffectiveEndDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Project::EffectiveEndDate_Default]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Project::EffectiveEndDate_Default]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Output].Columns[ETL_CreatedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Output].Columns[ETL_CreatedDate]"
+                      name="ETL_CreatedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Output].Columns[ETL_LastUpdatedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Output].Columns[ETL_LastUpdatedDate]"
+                      name="ETL_LastUpdatedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Output].Columns[MergeCase]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Output].Columns[MergeCase]"
+                      name="MergeCase"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DFT Load Temp D_Ward\Merge Join.Outputs[Merge Join Output].Columns[WardCode STAGE]} == [REPLACENULL](#{Package\DFT Load Temp D_Ward\Merge Join.Outputs[Merge Join Output].Columns[WardCode DW]},"A") ? "NoChange" : "Insert"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[WardCode STAGE] == REPLACENULL([WardCode DW],"A") ? "NoChange" : "Insert"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Temp D_Ward\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Temp D_Ward\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Temp D_Ward\Merge Join.Inputs[Merge Join Left Input].Columns[WardCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="WardCode"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes.Outputs[OLE DB Source Output].Columns[WardCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT Load Temp D_Ward\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Temp D_Ward\Merge Join.Inputs[Merge Join Right Input].Columns[WardCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="WardCode"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward.Outputs[OLE DB Source Output].Columns[WardCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Temp D_Ward\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\Merge Join.Outputs[Merge Join Output].Columns[WardCode STAGE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT Load Temp D_Ward\Merge Join.Outputs[Merge Join Output].Columns[WardCode STAGE]"
+                      name="WardCode STAGE"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DFT Load Temp D_Ward\Merge Join.Inputs[Merge Join Left Input].Columns[WardCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\Merge Join.Outputs[Merge Join Output].Columns[WardCode DW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT Load Temp D_Ward\Merge Join.Outputs[Merge Join Output].Columns[WardCode DW]"
+                      name="WardCode DW">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DFT Load Temp D_Ward\Merge Join.Inputs[Merge Join Right Input].Columns[WardCode]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source DW_D_Ward"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT WardCode
+FROM	DW.D_Ward
+WHERE	isActiveRecord = 'Y'
+ORDER BY WardCode ASC</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward.Connections[OleDbConnection]"
+                  connectionManagerID="{C097054E-D545-48E4-9EA9-08978F923AF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLE_SRC_ChicagoCrimeDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward.Outputs[OLE DB Source Output].Columns[WardCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward.Outputs[OLE DB Source Output].ExternalColumns[WardCode]"
+                      length="10"
+                      lineageId="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward.Outputs[OLE DB Source Output].Columns[WardCode]"
+                      name="WardCode"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward.Outputs[OLE DB Source Output].ExternalColumns[WardCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="WardCode" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward.Outputs[OLE DB Source Error Output].Columns[WardCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward.Outputs[OLE DB Source Error Output].Columns[WardCode]"
+                      name="WardCode" />
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source STAGE_Crimes"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT WardCode
+FROM	STAGE.Crimes
+WHERE	ETL_BatchID = (SELECT MAX(ETL_BatchID) FROM STAGE.Crimes)
+AND COALESCE(WardCode,'') &lt;&gt; ''
+ORDER BY WardCode ASC</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes.Connections[OleDbConnection]"
+                  connectionManagerID="{C097054E-D545-48E4-9EA9-08978F923AF5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLE_SRC_ChicagoCrimeDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes.Outputs[OLE DB Source Output].Columns[WardCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes.Outputs[OLE DB Source Output].ExternalColumns[WardCode]"
+                      length="10"
+                      lineageId="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes.Outputs[OLE DB Source Output].Columns[WardCode]"
+                      name="WardCode"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes.Outputs[OLE DB Source Output].ExternalColumns[WardCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="WardCode" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes.Outputs[OLE DB Source Error Output].Columns[WardCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes.Outputs[OLE DB Source Error Output].Columns[WardCode]"
+                      name="WardCode" />
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB TRGT Temp D_Ward"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[TEMP].[D_Ward]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Connections[OleDbConnection]"
+                  connectionManagerID="{607170FF-CB34-48E6-8D81-080160D60AAD}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLE_TRGT_ChicagoCrimeDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input].Columns[EffectiveStartDate]"
+                      cachedDataType="date"
+                      cachedName="EffectiveStartDate"
+                      externalMetadataColumnId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveStartDate]"
+                      lineageId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Output].Columns[EffectiveStartDate]" />
+                    <inputColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input].Columns[EffectiveEndDate]"
+                      cachedDataType="date"
+                      cachedName="EffectiveEndDate"
+                      externalMetadataColumnId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveEndDate]"
+                      lineageId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Output].Columns[EffectiveEndDate]" />
+                    <inputColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input].Columns[ETL_CreatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ETL_CreatedDate"
+                      externalMetadataColumnId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input].ExternalColumns[ETL_CreatedDate]"
+                      lineageId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Output].Columns[ETL_CreatedDate]" />
+                    <inputColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input].Columns[MergeCase]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="MergeCase"
+                      externalMetadataColumnId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input].ExternalColumns[MergeCase]"
+                      lineageId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Output].Columns[MergeCase]" />
+                    <inputColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input].Columns[WardCode STAGE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="WardCode STAGE"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input].ExternalColumns[WardCode]"
+                      lineageId="Package\DFT Load Temp D_Ward\Merge Join.Outputs[Merge Join Output].Columns[WardCode STAGE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input].ExternalColumns[MergeCase]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="MergeCase" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveStartDate]"
+                      dataType="dbTimeStamp"
+                      name="EffectiveStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveEndDate]"
+                      dataType="dbTimeStamp"
+                      name="EffectiveEndDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input].ExternalColumns[ETL_CreatedDate]"
+                      dataType="dbTimeStamp2"
+                      name="ETL_CreatedDate"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input].ExternalColumns[WardCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="WardCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input].ExternalColumns[WardName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="WardName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input].ExternalColumns[Boundry]"
+                      dataType="image"
+                      name="Boundry" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Load Temp D_Ward.Paths[Derived Column Output]"
+              endId="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT Load Temp D_Ward.Paths[Merge Join Output]"
+              endId="Package\DFT Load Temp D_Ward\DC ETL Meta Data.Inputs[Derived Column Input]"
+              name="Merge Join Output"
+              startId="Package\DFT Load Temp D_Ward\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\DFT Load Temp D_Ward.Paths[OLE DB Source Output]"
+              endId="Package\DFT Load Temp D_Ward\Merge Join.Inputs[Merge Join Left Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT Load Temp D_Ward.Paths[OLE DB Source Output1]"
+              endId="Package\DFT Load Temp D_Ward\Merge Join.Inputs[Merge Join Right Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Task Merge Temp into DW"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{07E87C40-D865-4546-BD57-1A9AFE8D3373}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Task Merge Temp into DW"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{607170FF-CB34-48E6-8D81-080160D60AAD}"
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[sp_Merge_D_Ward] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Task Truncate Temp Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DE3BEB51-D32F-41E7-AEBC-0797AD7170FC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Task Truncate Temp Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{607170FF-CB34-48E6-8D81-080160D60AAD}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE TEMP.D_Ward" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{52DED4DA-3F7B-4CFA-8A72-AEB0E96F6231}"
+      DTS:From="Package\SQL Task Truncate Temp Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT Load Temp D_Ward" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{B0621652-EFBD-4E9B-B308-D18D17AEEC86}"
+      DTS:From="Package\DFT Load Temp D_Ward"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQL Task Merge Temp into DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="198,42"
+          Id="Package\DFT Load Temp D_Ward"
+          TopLeft="79.6649214659686,140.356020942408" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\SQL Task Merge Temp into DW"
+          TopLeft="109.947643979058,232.460732984293" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\SQL Task Truncate Temp Table"
+          TopLeft="77.9057591623037,43.3507853403141" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="192.753926701571,85.5706806282722">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.3246073298429,54.7853403141358"
+              Start="0,0"
+              End="-14.3246073298429,47.2853403141358">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.3926701570679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.3926701570679"
+                    Point2="0,27.3926701570679"
+                    Point3="-4,27.3926701570679" />
+                  <mssgle:LineSegment
+                    End="-10.3246073298429,27.3926701570679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.3246073298429,27.3926701570679"
+                    Point2="-14.3246073298429,27.3926701570679"
+                    Point3="-14.3246073298429,31.3926701570679" />
+                  <mssgle:LineSegment
+                    End="-14.3246073298429,47.2853403141358" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="178.429319371728,182.575916230366">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.4502617801051,49.8848167539269"
+              Start="0,0"
+              End="14.4502617801051,42.3848167539269">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.9424083769634" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.9424083769634"
+                    Point2="0,24.9424083769634"
+                    Point3="4,24.9424083769634" />
+                  <mssgle:LineSegment
+                    End="10.4502617801051,24.9424083769634" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.4502617801051,24.9424083769634"
+                    Point2="14.4502617801051,24.9424083769634"
+                    Point3="14.4502617801051,28.9424083769634" />
+                  <mssgle:LineSegment
+                    End="14.4502617801051,42.3848167539269" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT Load Temp D_Ward">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="133,42"
+          Id="Package\DFT Load Temp D_Ward\Merge Join"
+          TopLeft="332.732984293194,151.287958115183" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward"
+          TopLeft="283.051608077786,374.270755422588" />
+        <NodeLayout
+          Size="225,42"
+          Id="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes"
+          TopLeft="51.7696335078534,54.5340314136126" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward"
+          TopLeft="559.916230366492,43.0575916230367" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\DFT Load Temp D_Ward\DC ETL Meta Data"
+          TopLeft="328.628272251309,267.141361256544" />
+        <EdgeLayout
+          Id="Package\DFT Load Temp D_Ward.Paths[Derived Column Output]"
+          TopLeft="412.314136125655,309.361256544502">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.1944652206434,64.9094988780859"
+              Start="0,0"
+              End="-20.1944652206434,57.4094988780859">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.454749439043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.454749439043"
+                    Point2="0,32.454749439043"
+                    Point3="-4,32.454749439043" />
+                  <mssgle:LineSegment
+                    End="-16.1944652206434,32.454749439043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.1944652206434,32.454749439043"
+                    Point2="-20.1944652206434,32.454749439043"
+                    Point3="-20.1944652206434,36.454749439043" />
+                  <mssgle:LineSegment
+                    End="-20.1944652206434,57.4094988780859" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Temp D_Ward.Paths[OLE DB Source Output1]"
+          TopLeft="668.230366492146,85.2774869109948">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-248.369982547993,66.0104712041882"
+              Start="0,0"
+              End="-248.369982547993,58.5104712041882">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.1343970010982" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.1343970010982"
+                    Point2="0,39.1343970010982"
+                    Point3="-4,39.1343970010982" />
+                  <mssgle:LineSegment
+                    End="-244.369982547993,39.1343970010982" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-244.369982547993,39.1343970010982"
+                    Point2="-248.369982547993,39.1343970010982"
+                    Point3="-248.369982547993,43.1343970010982" />
+                  <mssgle:LineSegment
+                    End="-248.369982547993,58.5104712041882" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Temp D_Ward.Paths[OLE DB Source Output]"
+          TopLeft="164.356020942408,96.7539267015707">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="234.722513089005,54.5340314136125"
+              Start="0,0"
+              End="234.722513089005,47.0340314136125">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.2670157068063" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.2670157068063"
+                    Point2="0,27.2670157068063"
+                    Point3="4,27.2670157068063" />
+                  <mssgle:LineSegment
+                    End="230.722513089005,27.2670157068063" />
+                  <mssgle:CubicBezierSegment
+                    Point1="230.722513089005,27.2670157068063"
+                    Point2="234.722513089005,27.2670157068063"
+                    Point3="234.722513089005,31.2670157068063" />
+                  <mssgle:LineSegment
+                    End="234.722513089005,47.0340314136125" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Temp D_Ward.Paths[Merge Join Output]"
+          TopLeft="399.078534031414,193.507853403141">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.2356020942409,73.6335078534026"
+              Start="0,0"
+              End="13.2356020942409,66.1335078534026">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.8167539267013" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.8167539267013"
+                    Point2="0,36.8167539267013"
+                    Point3="4,36.8167539267013" />
+                  <mssgle:LineSegment
+                    End="9.2356020942409,36.8167539267013" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.2356020942409,36.8167539267013"
+                    Point2="13.2356020942409,36.8167539267013"
+                    Point3="13.2356020942409,40.8167539267013" />
+                  <mssgle:LineSegment
+                    End="13.2356020942409,66.1335078534026" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Temp D_Ward\OLE DB TRGT Temp D_Ward">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Temp D_Ward\OLE DB Source STAGE_Crimes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Temp D_Ward\OLE DB Source DW_D_Ward">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

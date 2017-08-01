@@ -13,10 +13,10 @@
     DTS:Name="UserName">@[$Project::ChiCrimeETLUserName]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=WMPDEMOSQLDW.cloudapp.net,51433;User ID=ETL_User;Initial Catalog=ChicagoCrime;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      DTS:ConnectionString="Data Source=localhost;User ID=ETL_User;Initial Catalog=ChicagoCrime;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;">
       <DTS:Password
         DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHISCyHt+qkyksyrxVQWkeQAAAAACAAAAAAADZgAAwAAAABAAAAAggKrw1xDijwqQkevQjefdAAAAAASAAACgAAAAEAAAAMCf4Cszb1aUB53pqfvJPPV4AAAA1ZngUCdrsGhf3ByYW7lmlg7OCqqMNXqX0FvoRjfRJZj8a8QM/YHc2nXfqHUzmxgAjyuHVQyEObfRddvq+K6WoS+aO9iEuMHf/lQj1ExkkPt53nyge8C+Gbd9F75ZJQD8Nd1gh9q/M5ArYpatcMz3RGyqGW9174zAFAAAAHtHSLvFKuziqYtgX+OZy4cI2rYO</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA3UP2S47qmky0C7D02LhRGQAAAAACAAAAAAADZgAAwAAAABAAAAAaDYQciBP+do8+uzyibic2AAAAAASAAACgAAAAEAAAAKFHpvCarG8S9KPUf1zMKeN4AAAAfueaygSdY/Y6NuH+zkVihohzfFkc7TiMSoxzyK6NSRXOTKXeQrG5ByzQTEXwmAAc21xAYZG4wW6+Dhchwkhw+798m+9n3vCss4/ACi4YTaEkI+g+HPpR3cOvLz2SzExf+i1UBJZQiBTmvntprVmJk4YuH2HQ/81QFAAAAA3+esf6En2w9puf3sjjFfqPrpvI</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>

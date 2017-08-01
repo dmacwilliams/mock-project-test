@@ -7,12 +7,12 @@
   DTS:CreatorName="WMP\gwigen"
   DTS:DTSID="{A62E51F5-D528-484B-8988-F5940B6BE043}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LastModifiedProductVersion="13.0.1601.5"
   DTS:LocaleID="1033"
   DTS:ObjectName="Land_Crime"
   DTS:PackageType="5"
-  DTS:VersionBuild="73"
-  DTS:VersionGUID="{306CC978-EDC0-469B-AA1F-38101BE00B22}">
+  DTS:VersionBuild="76"
+  DTS:VersionGUID="{9204D195-5805-420C-87D0-8C04B396EF1C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -232,7 +232,7 @@
       DTS:ObjectName="Trgt_ChicagoCrimeDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=wmpdemosqldw.cloudapp.net,51433;Initial Catalog=ChicagoCrime;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=ChicagoCrime;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -246,7 +246,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="v_CallChicagoCrimeAPI">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\dmacwilliams\Source\Workspaces\ChicagoCrimePOC\ChicagoCrimeETL\scripts\APIGetCrimes.py</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\jswanson\Source\Workspaces\ChicagoCrimePOC\ChicagoCrimeETL\scripts\APIGetCrimes.py</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -268,7 +268,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="v_ProcessedFilesLocation">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\dmacwilliams\Source\Workspaces\ChicagoCrimePOC\ChicagoCrimeETL\processed\crimes_20160802.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\jswanson\Source\Workspaces\ChicagoCrimePOC\ChicagoCrimeETL\processed\crimes_20170801.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -279,7 +279,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="v_SourceFileLocation">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\dmacwilliams\Source\Workspaces\ChicagoCrimePOC\ChicagoCrimeETL\inbound\crimes.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\jswanson\Source\Workspaces\ChicagoCrimePOC\ChicagoCrimeETL\inbound\crimes.csv</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -1048,7 +1048,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1065,7 +1065,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
+                  name="FastLoadKeepIdentity">true</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
@@ -1466,7 +1466,7 @@
       <DTS:ObjectData>
         <ExecuteProcessData
           Executable="C:\Python27\python.exe"
-          Arguments="C:\Users\dmacwilliams\Source\Workspaces\ChicagoCrimePOC\ChicagoCrimeETL\scripts\APIGetCrimes.py" />
+          Arguments="C:\Users\jswanson\Source\Workspaces\ChicagoCrimePOC\ChicagoCrimeETL\scripts\APIGetCrimes.py" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1546,19 +1546,19 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="188,42"
+          Size="184.8,41.6"
           Id="Package\DF_Extract Crime_CSV"
           TopLeft="95.193717277487,206.5" />
         <NodeLayout
-          Size="219,42"
+          Size="219.2,41.6"
           Id="Package\Get latest Crime Data via API"
           TopLeft="79.5,9.5" />
         <NodeLayout
-          Size="326,42"
+          Size="326.4,41.6"
           Id="Package\Move and append Filename with date to processed folder"
           TopLeft="32.3560209424084,298.429319371728" />
         <NodeLayout
-          Size="193,42"
+          Size="192.8,41.6"
           Id="Package\Truncate Landing Table"
           TopLeft="93,105.5" />
         <EdgeLayout
@@ -1585,18 +1585,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="189.346858638743,147.5">
+          TopLeft="188.496858638744,147.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59"
+              EndConnector="0,59.4"
               Start="0,0"
-              End="0,51.5">
+              End="0,51.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.5" />
+                    End="0,51.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1607,18 +1607,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="192.274869109948,248.5">
+          TopLeft="191.574869109948,248.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49.929319371728"
+              EndConnector="0,50.329319371728"
               Start="0,0"
-              End="0,42.429319371728">
+              End="0,42.829319371728">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.429319371728" />
+                    End="0,42.829319371728" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1634,17 +1634,17 @@
     design-time-name="Package\DF_Extract Crime_CSV">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="170.890052356021,42.2198952879582"
+          Size="171.2,42.4"
           Id="Package\DF_Extract Crime_CSV\Trgt_LAND_Crimes"
           TopLeft="59.8115183246073,270.408376963351" />
         <NodeLayout
-          Size="217.130890052357,42.2198952879582"
+          Size="216.8,42.4"
           Id="Package\DF_Extract Crime_CSV\Extract Crime Data from CSV"
           TopLeft="39.4162303664922,5.5" />
         <NodeLayout
-          Size="198.031413612566,42.2198952879582"
+          Size="198.4,42.4"
           Id="Package\DF_Extract Crime_CSV\DC - Metadata Attributes"
           TopLeft="48.9659685863875,151.287958115183" />
         <EdgeLayout
@@ -1666,9 +1666,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1690,9 +1688,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
