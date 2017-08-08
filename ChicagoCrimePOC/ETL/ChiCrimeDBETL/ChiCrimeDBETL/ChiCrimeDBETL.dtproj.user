@@ -4,8 +4,8 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
-        <ServerName>localhost</ServerName>
-        <PathOnServer>/SSISDB/CrimeTest/ChiCrimeDBETL</PathOnServer>
+        <ServerName>Mock-project-test.centralus.cloudapp.azure.com</ServerName>
+        <PathOnServer>/SSISDB/ChicagoCrime/ChiCrimeDBETL</PathOnServer>
         <Run64BitRuntime>true</Run64BitRuntime>
         <UserIDs />
         <UserPasswords />

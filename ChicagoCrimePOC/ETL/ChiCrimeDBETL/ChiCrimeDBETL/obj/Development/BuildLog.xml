@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ChiCrimeDBETL</Name>
-    <LastWriteTime>2017-07-31T21:25:28.4519691Z</LastWriteTime>
+    <LastWriteTime>2017-08-08T19:59:45.6035081Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -13,7 +13,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Land_Crime.dtsx</Name>
-      <LastWriteTime>2017-07-31T21:18:15.4059314Z</LastWriteTime>
+      <LastWriteTime>2017-08-08T19:59:45.5819489Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>

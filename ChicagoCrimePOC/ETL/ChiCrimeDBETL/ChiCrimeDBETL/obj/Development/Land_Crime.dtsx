@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Land_Crime"
   DTS:PackageType="5"
-  DTS:VersionBuild="74"
-  DTS:VersionGUID="{7A4724D7-6EC0-4D8C-AF6A-B7E3FE9D042F}">
+  DTS:VersionBuild="79"
+  DTS:VersionGUID="{7BB53FF4-2094-4C1C-B73D-DADBD8B55316}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -30,7 +30,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\dmacwilliams\Source\Workspaces\ChicagoCrimePOC\ChicagoCrimeETL\inbound\crimes.csv">
+          DTS:ConnectionString="C:\ChicagoCrimeETL\inbound\crimes.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -39,7 +39,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="y_coordinate"
-              DTS:DTSID="{96F57D51-194F-4EA9-AD5A-98BDC5F62168}"
+              DTS:DTSID="{C5FF3448-7DFC-4E54-AF65-8DA285FC76CC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -48,7 +48,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="year"
-              DTS:DTSID="{70417750-54BF-4496-B0F2-85A56A321AFC}"
+              DTS:DTSID="{4798F246-55A1-40A6-9871-577EB8CCF171}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -57,7 +57,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="domestic"
-              DTS:DTSID="{7351B0E0-AEAC-4F8D-B096-81C5DDE350DA}"
+              DTS:DTSID="{A1EEF31A-2694-4711-A98E-7D235CEADA88}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -66,7 +66,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="case_number"
-              DTS:DTSID="{E9B578B7-0C95-46C4-AB7A-E2C89ACCF8B4}"
+              DTS:DTSID="{EFC312E2-6B50-404B-A23F-BB96C9E83F77}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -75,7 +75,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="id"
-              DTS:DTSID="{49966F71-2CC7-48DC-BAE1-7C02025D25CD}"
+              DTS:DTSID="{99A64E07-0AE7-467A-BCD9-4AA9952261BF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -84,7 +84,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="description"
-              DTS:DTSID="{734D1F3F-226E-4C3B-9383-80228E0A9365}"
+              DTS:DTSID="{1EE41621-4159-4568-9B2F-BF12B61901F8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -93,7 +93,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="district"
-              DTS:DTSID="{C6AC5785-2D95-48DF-8F82-DCEAE5982F62}"
+              DTS:DTSID="{63E2A820-DFEF-447A-8D89-39571CCBEB26}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -102,7 +102,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="arrest"
-              DTS:DTSID="{E8FE1A08-806A-44AC-9D66-42268FE04DD5}"
+              DTS:DTSID="{37649EC8-B06A-4A18-AD28-45B9093FC9BA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -111,7 +111,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="community_area"
-              DTS:DTSID="{227C247F-8764-44FA-8740-477C69AACB15}"
+              DTS:DTSID="{63D21492-0F05-4F4E-87AA-6607FEE43940}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -120,7 +120,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="latitude"
-              DTS:DTSID="{0E93C2F9-E98A-4E24-B03A-B2664C5F05C9}"
+              DTS:DTSID="{AAFFF5C6-C6A1-4543-8A4A-9AE1CE9E03C3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -129,7 +129,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="primary_type"
-              DTS:DTSID="{D82CD48E-08FA-4BB2-BAC5-654AF2529407}"
+              DTS:DTSID="{A8EA0A3F-D384-4176-9B22-FDDE6140F165}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -138,7 +138,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="beat"
-              DTS:DTSID="{F2F2242D-BA58-4FDF-8779-795C735B7140}"
+              DTS:DTSID="{F036B375-273A-4C76-815C-A495CF913C7F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -147,7 +147,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="date"
-              DTS:DTSID="{7386EBC3-F80B-40C7-A42F-1B620FC753EF}"
+              DTS:DTSID="{3E37A602-84C4-46D2-83F0-3D191D0919CE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -156,7 +156,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ward"
-              DTS:DTSID="{E65A8618-4225-4B95-BE06-A4C5D91B6DD1}"
+              DTS:DTSID="{FD4A09B8-21AD-44F5-BF65-39C7714D64AF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -165,7 +165,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="iucr"
-              DTS:DTSID="{802D93B2-DF95-4D5D-A084-23E960FE31E5}"
+              DTS:DTSID="{97ED82E3-E99F-4C30-ABEB-484788B43B9B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -174,7 +174,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="longitude"
-              DTS:DTSID="{0012A598-B5A6-468F-A723-AFA97433BA19}"
+              DTS:DTSID="{1F77E515-E0E9-4DD3-BE76-0F3D1E980CCD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -183,7 +183,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="location_description"
-              DTS:DTSID="{13723398-1FDD-4777-B1A7-10C38698DC02}"
+              DTS:DTSID="{501B6A91-AEB3-41E7-80B6-60FF9824ABA4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -192,7 +192,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="x_coordinate"
-              DTS:DTSID="{8514C7E0-814F-4E77-A621-8252404B9925}"
+              DTS:DTSID="{0D0E10D1-E6AA-4F3D-BB16-6A113EE5C3AC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -201,7 +201,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="updated_on"
-              DTS:DTSID="{4DB55FC2-4228-4A6C-896C-D2E53F1F7CE2}"
+              DTS:DTSID="{C17A79D9-8039-405A-8676-DFA0126AE562}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -210,7 +210,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="fbi_code"
-              DTS:DTSID="{D195C5B1-34BE-49BB-BF77-055520A248E9}"
+              DTS:DTSID="{08229DF6-558B-4A63-9B36-563733153CD2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -219,7 +219,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="block"
-              DTS:DTSID="{CC11634C-D41F-4D83-A316-0D6C738A4B88}"
+              DTS:DTSID="{471ADB64-4123-41B4-A46A-5078E86C1177}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -232,7 +232,7 @@
       DTS:ObjectName="Trgt_ChicagoCrimeDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=wmpdemosqldw.cloudapp.net,51433;Initial Catalog=ChicagoCrime;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=ChicagoCrime;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -246,7 +246,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="v_CallChicagoCrimeAPI">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\dmacwilliams\Source\Workspaces\ChicagoCrimePOC\ChicagoCrimeETL\scripts\APIGetCrimes.py</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\JSWANSON\Source\Repos\mock-project-test\ChicagoCrimePOC\\scripts\APIGetCrimes.py</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -257,7 +257,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="v_CallPython">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Python27\python.exe</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\JSWANSON\AppData\Local\Programs\Python\Python36-32\python.exe</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -268,7 +268,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="v_ProcessedFilesLocation">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\dmacwilliams\Source\Workspaces\ChicagoCrimePOC\ChicagoCrimeETL\processed\crimes_20170731.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\JSWANSON\Source\Repos\mock-project-test\ChicagoCrimePOC\\processed\crimes_20170808.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -279,7 +279,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="v_SourceFileLocation">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\dmacwilliams\Source\Workspaces\ChicagoCrimePOC\ChicagoCrimeETL\inbound\crimes.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\JSWANSON\Source\Repos\mock-project-test\ChicagoCrimePOC\\inbound\crimes.csv</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -1065,7 +1065,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
+                  name="FastLoadKeepIdentity">true</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
@@ -1465,8 +1465,8 @@
         DTS:Name="Executable">@[User::v_CallPython]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <ExecuteProcessData
-          Executable="C:\Python27\python.exe"
-          Arguments="C:\Users\dmacwilliams\Source\Workspaces\ChicagoCrimePOC\ChicagoCrimeETL\scripts\APIGetCrimes.py" />
+          Executable="C:\Users\JSWANSON\AppData\Local\Programs\Python\Python36-32\python.exe"
+          Arguments="C:\Users\JSWANSON\Source\Repos\mock-project-test\ChicagoCrimePOC\\scripts\APIGetCrimes.py" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1550,7 +1550,7 @@
           Id="Package\DF_Extract Crime_CSV"
           TopLeft="95.193717277487,206.5" />
         <NodeLayout
-          Size="219.2,41.6"
+          Size="216,41.6"
           Id="Package\Get latest Crime Data via API"
           TopLeft="79.5,9.5" />
         <NodeLayout
@@ -1563,18 +1563,18 @@
           TopLeft="93,105.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="189.25,51.5">
+          TopLeft="188.45,51.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,54"
+              EndConnector="0,54.4"
               Start="0,0"
-              End="0,46.5">
+              End="0,46.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.5" />
+                    End="0,46.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
