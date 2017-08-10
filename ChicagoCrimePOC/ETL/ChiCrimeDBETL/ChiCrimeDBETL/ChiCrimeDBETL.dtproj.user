@@ -6,7 +6,6 @@
       <Options>
         <ServerName>Mock-project-test.centralus.cloudapp.azure.com</ServerName>
         <PathOnServer>/SSISDB/ChicagoCrime/ChiCrimeDBETL</PathOnServer>
-        <Run64BitRuntime>true</Run64BitRuntime>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>

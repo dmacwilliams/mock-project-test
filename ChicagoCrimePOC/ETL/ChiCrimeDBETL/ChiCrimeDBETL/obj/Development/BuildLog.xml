@@ -2,53 +2,53 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ChiCrimeDBETL</Name>
-    <LastWriteTime>2017-08-08T19:59:45.6035081Z</LastWriteTime>
+    <LastWriteTime>2017-08-09T16:52:31.6536514Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Stage_Crime.dtsx</Name>
-      <LastWriteTime>2017-07-28T14:53:56.6028896Z</LastWriteTime>
+      <LastWriteTime>2017-08-09T16:52:31.8326739Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Land_Crime.dtsx</Name>
-      <LastWriteTime>2017-08-08T19:59:45.5819489Z</LastWriteTime>
+      <LastWriteTime>2017-08-09T16:52:31.7206785Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DW_D_CommunityArea.dtsx</Name>
-      <LastWriteTime>2017-07-28T14:56:11.5715853Z</LastWriteTime>
+      <LastWriteTime>2017-08-09T16:52:31.6685818Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DW_D_FBICode.dtsx</Name>
-      <LastWriteTime>2017-07-28T14:53:56.587349Z</LastWriteTime>
+      <LastWriteTime>2017-08-09T16:52:31.6756723Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DW_D_PoliceBeat.dtsx</Name>
-      <LastWriteTime>2017-07-28T14:53:56.5888525Z</LastWriteTime>
+      <LastWriteTime>2017-08-09T16:52:31.6826616Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DW_D_PoliceDistrict.dtsx</Name>
-      <LastWriteTime>2017-07-28T14:53:56.5898553Z</LastWriteTime>
+      <LastWriteTime>2017-08-09T16:52:31.6886774Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DW_D_Ward.dtsx</Name>
-      <LastWriteTime>2017-07-28T14:53:56.5913591Z</LastWriteTime>
+      <LastWriteTime>2017-08-09T16:52:31.6946765Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DW_F_Crime.dtsx</Name>
-      <LastWriteTime>2017-07-28T14:53:56.5953696Z</LastWriteTime>
+      <LastWriteTime>2017-08-09T16:52:31.7116687Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>StageHourlyWeather.dtsx</Name>
-      <LastWriteTime>2017-07-31T21:37:05.3026982Z</LastWriteTime>
+      <LastWriteTime>2017-08-09T16:52:31.8576681Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
