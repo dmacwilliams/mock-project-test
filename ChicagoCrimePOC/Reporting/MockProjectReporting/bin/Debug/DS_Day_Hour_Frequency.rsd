@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>ChicagoCrime</DataSourceReference>
+      <CommandText>SELECT D_Date.DayNameOfWeek, F_Crime.CrimeHour, D_FBICode.FBICode, Count(1) as NumCrimes
+  FROM [ChicagoCrime].[DW].[F_Crime]
+  JOIN DW.D_DATE
+  ON F_CRIME.dateKey = D_DATE.dateKey
+  JOIN DW.D_FBICode
+  ON F_CRIME.FBIKey = D_FBICode.FBICodeKey
+GROUP BY D_Date.DayNameOfWeek, F_Crime.CrimeHour, D_FBICode.FBICode</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="DayNameOfWeek">
+        <DataField>DayNameOfWeek</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="CrimeHour">
+        <DataField>CrimeHour</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="FBICode">
+        <DataField>FBICode</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="NumCrimes">
+        <DataField>NumCrimes</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

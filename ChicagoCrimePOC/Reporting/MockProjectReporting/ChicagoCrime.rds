@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="ChicagoCrime">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=wmp-mock-project-test.centralus.cloudapp.azure.com;Initial Catalog=ChicagoCrime</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>1492c085-4417-41d0-a936-c994071d1899</DataSourceID>
+</RptDataSource>
